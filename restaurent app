@@ -1,0 +1,133 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Calendar, Users, ChefHat, Heart, Camera, Music } from "lucide-react";
+
+const Services = () => {
+  const services = [
+    {
+      icon: Calendar,
+      title: "Private Events",
+      description: "Host your special occasions in our elegant private dining rooms",
+      features: ["Customized menus", "Dedicated service staff", "Audio/visual equipment", "Flexible seating arrangements"],
+      price: "Starting at $75 per person"
+    },
+    {
+      icon: Users,
+      title: "Corporate Catering",
+      description: "Professional catering services for business meetings and corporate events",
+      features: ["On-site delivery", "Setup and cleanup", "Dietary accommodations", "Professional presentation"],
+      price: "Starting at $25 per person"
+    },
+    {
+      icon: ChefHat,
+      title: "Cooking Classes",
+      description: "Learn from our expert chefs in hands-on culinary workshops",
+      features: ["Small group sessions", "Recipe cards included", "Wine pairings available", "All ingredients provided"],
+      price: "$85 per person"
+    },
+    {
+      icon: Heart,
+      title: "Wedding Celebrations",
+      description: "Make your wedding day unforgettable with our comprehensive wedding services",
+      features: ["Bridal menu tastings", "Wedding cake coordination", "Floral arrangements", "Photography assistance"],
+      price: "Custom packages available"
+    },
+    {
+      icon: Camera,
+      title: "Wine Tastings",
+      description: "Guided wine tasting experiences with our certified sommelier",
+      features: ["Expert guidance", "Cheese pairings", "Educational materials", "Group discounts available"],
+      price: "$45 per person"
+    },
+    {
+      icon: Music,
+      title: "Live Entertainment",
+      description: "Enjoy live music performances during weekend dinners",
+      features: ["Local musicians", "Various genres", "Friday & Saturday nights", "No additional charge"],
+      price: "Complimentary with dinner"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-96 bg-gradient-hero flex items-center justify-center">
+        <div className="text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">
+            Our Services
+          </h1>
+          <p className="text-xl animate-fade-in opacity-90 max-w-2xl mx-auto">
+            From intimate gatherings to grand celebrations, we make every occasion special
+          </p>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-gradient-card">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service) => (
+                <Card key={service.title} className="shadow-elegant hover:shadow-warm transition-all duration-300 transform hover:scale-105 flex flex-col h-full">
+                  <CardHeader className="text-center">
+                    <service.icon className="w-16 h-16 text-primary mx-auto mb-4" />
+                    <CardTitle className="text-2xl text-foreground">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-1 flex flex-col">
+                    <p className="text-muted-foreground mb-6 text-center">
+                      {service.description}
+                    </p>
+                    
+                    <div className="flex-1">
+                      <h4 className="font-semibold mb-3 text-foreground">Includes:</h4>
+                      <ul className="space-y-2 mb-6">
+                        {service.features.map((feature, index) => (
+                          <li key={index} className="flex items-center text-sm text-muted-foreground">
+                            <span className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="mt-auto">
+                      <div className="text-center mb-4">
+                        <span className="text-lg font-bold text-primary">{service.price}</span>
+                      </div>
+                      <Button variant="restaurant" className="w-full">
+                        Learn More
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 bg-restaurant-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6 text-foreground">Ready to Plan Your Event?</h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Our event planning team is here to help make your vision come to life. 
+              Contact us today to discuss your needs and get a custom quote.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="hero" size="lg">
+                Schedule Consultation
+              </Button>
+              <Button variant="outline" size="lg">
+                Call (555) 123-4567
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Services;
